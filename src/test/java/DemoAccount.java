@@ -13,13 +13,13 @@ import org.testng.annotations.Test;
 public class DemoAccount {
 
     @BeforeTest
-    public void setup() {
+    public void setup(){
         WebDriverManager.chromedriver().setup();
     }
 
     @Ignore
     @Test
-    public void test_capabilities() {
+    public void test_capabilities(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1700,800");
         options.addArguments("--headless");
@@ -37,20 +37,21 @@ public class DemoAccount {
     }
 
     @Test
-    public void test_waits() {
+    public void test_waits(){
         WebDriver driver = new ChromeDriver();
-        WebDriverWait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         driver.get("https://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
         driver.findElement(By.id("downloadButton")).click();
 
         boolean result = false;
         //manejo de exepciones
-        try {
-            result = wait.unilt(
+        try{
+            result = wait.until(
                     ExpectedConditions.textToBe(
-                            By.className("progress-label"), "Complete!"));
-        } catch (WebDriverException exception) {
+                            By.className("progress-label"),"Complete!"));
+        }
+        catch (WebDriverException exception){
             System.out.println("No funcionó");
         }
 
@@ -59,11 +60,11 @@ public class DemoAccount {
     }
 
     @Test
-    public void drag_and_drop() {
+    public void drag_and_drop(){
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.seleniumeasy.com/test/drag-and-drop-demo.html");
 
-        Actions = new Actions(driver);
+        Actions actions = new Actions(driver);
 
         WebElement caja1 = driver.findElement(By.xpath("//span[text()='Draggable 1']"));
         WebElement drop = driver.findElement(By.id("mydropzone"));
@@ -79,7 +80,6 @@ public class DemoAccount {
         WebElement dropeado = driver.findElement(By.xpath("//div[@id='droppedlist']/span[text()='Draggable 1']"));
         Assert.assertTrue(dropeado.isDisplayed());
 
-
     }
-}
 
+}
