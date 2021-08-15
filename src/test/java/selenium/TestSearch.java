@@ -80,14 +80,14 @@ public class TestSearch extends BaseClass {
     }*/
 
     /**
-     * String = "Juan"
+     * String = "Carolina"
      *
-     * String[] = ["Juan", "Pablo", "Piedra"]
+     * String[] = ["Carolina", "Benavides", "Venegas"]
      *
      *
      * String[][]
      * Nombre Apellido Correo
-     * Juaun    Piedra  juan@piedra
+     * carolina Benavides carobv@hotmail.com
      *
      * */
 }

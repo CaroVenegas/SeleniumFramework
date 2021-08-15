@@ -16,7 +16,7 @@ public class TestAccount extends BaseClass {
     public void Test_Login_Successful(){
         HeaderPage headerPage = new HeaderPage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        String username = "juan.piedra@ucreativa.com";
+        String username = "carobv2096@hotmail.com";
         String password = "asdf";
 
         //Go To Login Page
@@ -52,7 +52,7 @@ public class TestAccount extends BaseClass {
          * */
 
         LoginPage loginPage = new LoginPage(driver);
-        String username = "juan.piedra@ucreativa.com";
+        String username = "carobv2096@hotmail.com";
         String password = "asdfasdf";
         String expectedMessage = "warning: no match for e-mail address and/or password.";
 
@@ -66,10 +66,10 @@ public class TestAccount extends BaseClass {
     @Test
     public void Test_Create_New_Account(){
         //SETUP
-        String firstName = "Juan";
-        String lastName = "Piedra";
-        String email = "juan@piedra.com";
-        String telephone = "11111";
+        String firstName = "Carolina";
+        String lastName = "Benavides";
+        String email = "carolina@benavides.com";
+        String telephone = "2232";
         String password = "asdf";
         String expectedMessage = "Your Account Has Been Created!";
         RegisterPage registerPage = new RegisterPage(driver);
