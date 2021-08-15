@@ -1,0 +1,16 @@
+{
+  "dataSet": [
+    {
+      "searchCriteria" : "macbook",
+      "expectedResults" : 3
+    },
+    {
+      "searchCriteria" : "Star Wars",
+      "expectedResults" : 0
+    },
+    {
+      "searchCriteria" : "iPhone",
+      "expectedResults" : 1
+    }
+  ]
+}
