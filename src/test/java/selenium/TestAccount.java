@@ -1,3 +1,6 @@
+package selenium;
+
+import PageObjects.BaseClass;
 import PageObjects.HeaderPage;
 import PageObjects.LoginPage;
 import PageObjects.RegisterPage;
@@ -5,9 +8,8 @@ import io.qameta.allure.Description;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import sun.rmi.runtime.Log;
 
-public class TestAccount extends BaseClass{
+public class TestAccount extends BaseClass {
 
     @Description("Validate test login was successful")
     @Test(description = "Test Login Success")
