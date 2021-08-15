@@ -1,5 +1,7 @@
 package pojo;
 
+// Plain Old Java Object
+
 public class SearchData {
     private String searchCriteria;
     private int expectedResults;

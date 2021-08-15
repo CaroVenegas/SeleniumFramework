@@ -19,13 +19,13 @@ public class SearchProvider {
                 {new SearchData("Star Wars", 0)}
         };
     }
+
     @DataProvider(name = "getSearchData1")
     private Object[][] getSearchData1(){
         return new Object[][]{
                 {new SearchData("macbook", 3)}
         };
     }
-
 
     @DataProvider(name = "getSearchDataFromJson")
     private Object[][] getSearchDataFromJson() throws FileNotFoundException {

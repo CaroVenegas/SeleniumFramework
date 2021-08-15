@@ -3,8 +3,7 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage {
-    private WebDriver driver;
+public class RegisterPage extends BasePage {
 
     //Elementos
     private By NameLocator = By.name("firstname");
@@ -19,7 +18,7 @@ public class RegisterPage {
 
 
     public RegisterPage(WebDriver _driver){
-        this.driver = _driver;
+        super(_driver);
     }
     public void GoTo(){
         HeaderPage headerPage = new HeaderPage(driver);

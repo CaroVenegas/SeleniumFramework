@@ -52,42 +52,16 @@ public class TestSearch extends BaseClass {
 
     @Test (dataProvider = "getSearchDataFromJson", dataProviderClass = SearchProvider.class)
     public void Test_Search_WithData(SearchData testData){
-        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         WebElement searchInput = driver.findElement(By.name("search"));
         searchInput.sendKeys(testData.getSearchCriteria());
 
         driver.findElement(By.xpath("//div[@id='search']/span/button")).click();
 
         if(testData.getExpectedResults() > 0){
-            Assert.assertEquals(searchResultsPage.getResultsCount(), testData.getExpectedResults());
+            Assert.assertEquals(searchResultsPage().getResultsCount(), testData.getExpectedResults());
         }
         else{
-            Assert.assertTrue(searchResultsPage.isNoResultsVisible());
+            Assert.assertTrue(searchResultsPage().isNoResultsVisible());
         }
     }
-
-    /*
-    @Attachment(value = "TestData", type = "text/plain", fileExtension = ".txt")
-    public byte[] PrintTestData(){
-        try {
-            //File file = new File();
-            //file.
-            //return "Search Criteria used: " + tesData[0] + ", Expected results: " + tesData[1];
-        }
-        catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
-    }*/
-
-    /**
-     * String = "Carolina"
-     *
-     * String[] = ["Carolina", "Benavides", "Venegas"]
-     *
-     *
-     * String[][]
-     * Nombre Apellido Correo
-     * carolina Benavides carobv@hotmail.com
-     *
-     * */
-}
+}}
