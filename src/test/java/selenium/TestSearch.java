@@ -64,4 +64,4 @@ public class TestSearch extends BaseClass {
             Assert.assertTrue(searchResultsPage().isNoResultsVisible());
         }
     }
-}}
+}

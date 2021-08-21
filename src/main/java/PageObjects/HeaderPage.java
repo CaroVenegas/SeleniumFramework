@@ -29,4 +29,10 @@ public class HeaderPage extends BasePage{
         driver.findElement(shoppingCartLocator).click();
     }
     public void clickOnYourStoreButton() {driver.findElement(yourStoreButtonLocator).click();}
+
+    public void changeCurrencyToDollar() {
+    }
+
+    public void changeCurrencyToEuro() {
+    }
 }

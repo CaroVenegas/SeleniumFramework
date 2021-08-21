@@ -1,8 +1,7 @@
 package selenium;
 
+import PageObjects.*;
 import PageObjects.BaseClass;
-import PageObjects.LoginPage;
-import PageObjects.Utils;
 import dataProviders.SearchProvider;
 import dataProviders.UsersProvider;
 import io.qameta.allure.Description;
@@ -21,8 +20,8 @@ public class TestAccount extends BaseClass {
     @Description("Validate test login was successful")
     @Test(description = "Test Login Success")
     public void Test_Login_Successful(){
-        String username = "juan.piedra@ucreativa.com";
-        String password = "asdf";
+        String username = "carobv2096@ucreativa.com";
+        String password = "hondaeg92";
 
         //Go To Login Page
         headerPage().clickOnMyAccount();
@@ -46,8 +45,8 @@ public class TestAccount extends BaseClass {
     @Description("Validate that the login is working with non valid credentials")
     @Test(description = "Test Login Not Success")
     public void Test_Login_Unsuccessful(){
-        String username = "juan.piedra@ucreativa.com";
-        String password = "asdfasdf";
+        String username = "carobv2096@ucreativa.com";
+        String password = "hondaeg92";
         String expectedMessage = "warning: no match for e-mail address and/or password.";
 
         loginPage().GoTo();
@@ -73,11 +72,11 @@ public class TestAccount extends BaseClass {
     @Test
     public void Test_Create_New_Account(){
         //SETUP
-        String firstName = "Juan";
-        String lastName = "Piedra";
+        String firstName = "carolina";
+        String lastName = "benavides";
         String email = Utils.generateRandomEmail();
-        String telephone = "11111";
-        String password = "asdf";
+        String telephone = "85271911";
+        String password = "hondaeg92";
         String expectedMessage = "Your Account Has Been Created!";
 
         //RUN
@@ -93,17 +92,52 @@ public class TestAccount extends BaseClass {
     public void Test_Duplicated_Email(){
 
     }
+    @Description("Check the price of a product in different currencies.")
+    @Test(dataProvider = "getProductPricesDataFromJson", dataProviderClass = ProductPricesProvider.class)
+    public void Test_Different_Currency_Values(ProductsPrices testProduct, int quantity) {
 
+        HomePage homePage =new HomePage(driver);
+        homePage.searchforProduct(testProduct.getProduct());
+        ProductPage productPage= new ProductPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        String name = homePage.selectFirstProductAndGetName();
+        productPage.SetQuantity(quantity);
+        productPage.clickAddButton();
+        headerPage().clickOnCartButton();
+        headerPage().changeCurrencyToDollar();
+        String dollarTotalAmount = shoppingCartPage.catchProductPriceOnShoppingCart();
+        headerPage().changeCurrencyToEuro();
+        String euroTotalAmount =shoppingCartPage.catchProductPriceOnShoppingCart();
+        String poundTotalAmount=shoppingCartPage.catchProductPriceOnShoppingCart();
 
+        double dolar = Utils.returnDouble(dollarTotalAmount);
+        double dollar = Utils.returnDouble(dollarTotalAmount);
+        double euro = Utils.returnDouble(euroTotalAmount);
+        double pound = Utils.returnDouble(poundTotalAmount);
+        Assert.assertEquals(dolar,testProduct.getDolarsPrice());
+        Assert.assertEquals(dollar,testProduct.getDolarsPrice());
+        Assert.assertEquals(euro,testProduct.getEuroPrice());
+        Assert.assertEquals(pound,testProduct.getPoundsPrice());
+    }
 
-    /**
-     * Open browser
-     * Navigate to ...
-     * Click to sign in page -> clickOnSignInPageButton()
-     * Fill the form  -> fillTheForm(username, password)
-     * Click submit -> clickOnSubmitButton()
-     * */
+    private class ProductsPrices {
+        public double getDolarsPrice() {
+            return 0;
+        }
 
+        public double getEuroPrice() {
+            return 0;
+        }
 
+        public double getPoundsPrice() {
+            return 0;
+        }
 
+        public Object getProduct() {
+        }
+    }
+
+    private class ProductPricesProvider {
+    }
 }
+

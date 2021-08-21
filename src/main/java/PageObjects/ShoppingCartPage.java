@@ -45,4 +45,10 @@ public class ShoppingCartPage extends BasePage{
     public int getAmountOfShoppingCartRows(){
         return driver.findElements(shoppingCartRows).size() - 1;
     }
+
+    public String catchProductPriceOnShoppingCart() {
+        return null;
+    }
+
+
 }
