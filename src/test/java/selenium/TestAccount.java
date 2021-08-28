@@ -133,7 +133,7 @@ public class TestAccount extends BaseClass {
             return 0;
         }
 
-        public Object getProduct() {
+        public void getProduct() {
         }
     }
 
